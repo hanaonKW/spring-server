@@ -7,12 +7,12 @@
             const prompt = document.getElementById('prompt').value;
 
             try {
-                const response = await fetch('/api/text/generate', {
+                const response = await fetch('/api/translate', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/x-www-form-urlencoded'
                     },
-                    body: JSON.stringify({ prompt })
+                    body: `text=${encodeURIComponent(prompt)}`
                 });
 
                 if (response.ok) {
