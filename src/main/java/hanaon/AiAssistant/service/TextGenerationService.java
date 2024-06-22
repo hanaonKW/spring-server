@@ -41,7 +41,7 @@ public class TextGenerationService {
             messages.put(new JSONObject().put("role", "system").put("content", "You are a knowledgeable assistant who provides detailed and accurate information in Korean."));
             messages.put(new JSONObject().put("role", "user").put("content", prompt));
             requestBody.put("messages", messages);
-            requestBody.put("max_tokens", 150);
+            requestBody.put("max_tokens", 500);
 
             StringEntity entity = new StringEntity(requestBody.toString());
             post.setEntity(entity);
