@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
-
 @RestController
 @RequestMapping("/api/text")
 public class TextGenerationController {
@@ -27,17 +26,3 @@ public class TextGenerationController {
         }
     }
 }
-
-class TextRequest {
-    private String prompt;
-
-    // Getters and setters
-    public String getPrompt() {
-        return prompt;
-    }
-
-    public void setPrompt(String prompt) {
-        this.prompt = prompt;
-    }
-}
-

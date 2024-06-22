@@ -21,17 +21,22 @@ public class TextGenerationService {
     @Value("${openai.api.key}")
     private String apiKey;
 
+    @Value("${openai.api.fine_tuned_model}")
+    private String fineTunedModel;
+
     public String generateText(String prompt) throws Exception {
         System.out.println("API URL: " + apiUrl);
         System.out.println("API Key: " + apiKey);
+        System.out.println("Using fine-tuned model: " + fineTunedModel);
 
         try (CloseableHttpClient client = HttpClients.createDefault()) {
-            HttpPost post = new HttpPost(apiUrl);
+            HttpPost post = new HttpPost(apiUrl + "/chat/completions");
             post.setHeader("Content-Type", "application/json");
             post.setHeader("Authorization", "Bearer " + apiKey);
 
             JSONObject requestBody = new JSONObject();
-            requestBody.put("model", "gpt-3.5-turbo");
+            requestBody.put("model", fineTunedModel); // 파인 튜닝된 모델 ID 사용
+
             JSONArray messages = new JSONArray();
             messages.put(new JSONObject().put("role", "system").put("content", "You are a knowledgeable assistant who provides detailed and accurate information in Korean."));
             messages.put(new JSONObject().put("role", "user").put("content", prompt));
