@@ -1,8 +1,17 @@
 spring:
+  cloud:
+    gcp:
+      credentials:
+        location: classpath:articulate-bot-427008-b0-098d19344371.json
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
   datasource:
-    url: jdbc:mysql://localhost:3306/voice_chat
+    url: jdbc:mysql://localhost:3306/osonglostsystem
     username: root
-    password: Rkajrwlak20317!
+    password: Dmagmagma1234!
     driver-class-name: com.mysql.cj.jdbc.Driver
   sql:
     init:
@@ -17,3 +26,7 @@ spring:
         hbm2ddl:
           auto: update
         default_batch_fetch_size: 1000
+google:
+  cloud:
+    credentials:
+      location: classpath:articulate-bot-427008-b0-098d19344371.json
