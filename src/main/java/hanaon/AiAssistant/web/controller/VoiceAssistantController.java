@@ -49,10 +49,14 @@ public class VoiceAssistantController {
             // 생성된 응답 텍스트를 콘솔에 출력
             System.out.println("Generated Response: " + generatedText);
 
+            // 텍스트를 한글로 번역
+            String translatedResponse = translationService.translateText(generatedText, "EN", "KO");
+            System.out.println("translated Response: " + translatedResponse);
+
             // 응답 텍스트 반환
             JSONObject response = new JSONObject();
             response.put("transcribedText", text);
-            response.put("generatedText", generatedText);
+            response.put("generatedText", translatedResponse);
 
             return ResponseEntity.ok(response.toString());
 

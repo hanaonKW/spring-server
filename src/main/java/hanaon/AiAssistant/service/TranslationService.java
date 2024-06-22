@@ -1,5 +1,7 @@
 package hanaon.AiAssistant.service;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -38,8 +40,11 @@ public class TranslationService {
 
         ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
 
-        // TODO: JSON 파싱 추가
-        return response.getBody();
+        // JSON 파싱하여 translated text 추출
+        JSONObject jsonResponse = new JSONObject(response.getBody());
+        JSONArray translations = jsonResponse.getJSONArray("translations");
+        return translations.getJSONObject(0).getString("text");
+//        return response.getBody();
     }
 
     public String processRequest(String prompt) throws Exception {

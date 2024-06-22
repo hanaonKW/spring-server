@@ -43,7 +43,7 @@ public class TextGenerationService {
             requestBody.put("messages", messages);
             requestBody.put("max_tokens", 500);
 
-            StringEntity entity = new StringEntity(requestBody.toString());
+            StringEntity entity = new StringEntity(requestBody.toString(), "UTF-8");
             post.setEntity(entity);
 
             try (CloseableHttpResponse response = client.execute(post)) {
