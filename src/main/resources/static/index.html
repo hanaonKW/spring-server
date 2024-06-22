@@ -81,6 +81,44 @@
             }
         }
 
+        async function processText() {
+            const textInput = document.getElementById('textInput');
+            const text = textInput.value.trim();
+
+            if (!text) {
+                alert('Please enter some text!');
+                return;
+            }
+
+            document.getElementById('loading').style.display = 'block';
+
+            try {
+                const response = await fetch('/api/v1/voice-assistant/process-text', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: `text=${encodeURIComponent(text)}`
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    const generatedText = result.generatedText;
+                    const audioBase64 = result.audio;
+
+                    addMessageToChat('User', text, 'user-message');
+                    addMessageToChat('Assistant', generatedText, 'assistant-message');
+                    addAudioToChat(audioBase64);
+                } else {
+                    addMessageToChat('Assistant', 'Error: ' + response.statusText, 'assistant-message');
+                }
+            } catch (error) {
+                addMessageToChat('Assistant', 'Error: ' + error.message, 'assistant-message');
+            } finally {
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+
         function addMessageToChat(sender, message, className) {
             const chatBox = document.getElementById('chat-box');
             const messageElement = document.createElement('div');
@@ -106,7 +144,9 @@
 <div class="chat-container">
     <h1>Voice Assistant</h1>
     <input type="file" id="voiceFile" accept="audio/*"><br>
-    <button onclick="processVoice()">Upload and Process</button>
+    <button onclick="processVoice()">Upload and Process Voice</button><br><br>
+    <textarea id="textInput" rows="4" cols="50" placeholder="Enter text here..."></textarea><br>
+    <button onclick="processText()">Submit Text</button>
     <div id="loading" class="loading">Processing...</div>
     <div id="chat-box" class="chat-box"></div>
 </div>
