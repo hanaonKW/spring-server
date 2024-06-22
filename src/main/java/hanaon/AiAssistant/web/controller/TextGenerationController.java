@@ -12,7 +12,7 @@ public class TextGenerationController {
     @Autowired
     private TextGenerationService textGenerationService;
 
-    @PostMapping("/generate")
+    @PostMapping(value = "/generate")
     public String generateText(@RequestBody Map<String, String> request) {
         String prompt = request.get("prompt");
         System.out.println("Received prompt: " + prompt);  // 로그 메시지 추가
