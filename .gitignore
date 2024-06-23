@@ -37,4 +37,4 @@ out/
 .vscode/
 
 application-key.properties
-/resources/articulate-bot-427008-b0-098d19344371.json
+src/main/resources/articulate-bot-427008-b0-098d19344371.json
