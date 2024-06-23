@@ -22,7 +22,7 @@ public class SpeechToTextServiceImpl implements SpeechToTextService {
 
     private static final Logger logger = Logger.getLogger(SpeechToTextServiceImpl.class.getName());
 
-    @Value("classpath:articulate-bot-427008-b0-098d19344371.json")
+    @Value("${spring.cloud.gcp.credentials.location}")
     private Resource gcpCredentials;
 
     @Override
@@ -36,6 +36,7 @@ public class SpeechToTextServiceImpl implements SpeechToTextService {
             // 임시 파일 생성 및 파일 저장
             tempFile = File.createTempFile("audio", ".wav");
             FileCopyUtils.copy(file.getInputStream(), new FileOutputStream(tempFile));
+            logger.info("Temporary file created: " + tempFile.getAbsolutePath());
 
             // Google Cloud 인증 설정
             GoogleCredentials credentials = GoogleCredentials.fromStream(gcpCredentials.getInputStream());
@@ -49,7 +50,7 @@ public class SpeechToTextServiceImpl implements SpeechToTextService {
             try {
                 RecognitionConfig config = RecognitionConfig.newBuilder()
                         .setEncoding(RecognitionConfig.AudioEncoding.LINEAR16)
-                        .setSampleRateHertz(16000)
+                        .setSampleRateHertz(16000) // 44100 Hz로 샘플레이트 설정
                         .setLanguageCode("ko-KR")
                         .build();
 
@@ -63,6 +64,7 @@ public class SpeechToTextServiceImpl implements SpeechToTextService {
                         .build();
 
                 RecognizeResponse response = speechClient.recognize(request);
+                logger.info("Received recognition response");
                 StringBuilder transcription = new StringBuilder();
                 for (SpeechRecognitionResult result : response.getResultsList()) {
                     for (SpeechRecognitionAlternative alternative : result.getAlternativesList()) {
@@ -71,18 +73,27 @@ public class SpeechToTextServiceImpl implements SpeechToTextService {
                 }
 
                 return transcription.toString();
+            } catch (Exception e) {
+                logger.severe("Exception during transcription: " + e.getMessage());
+                throw e;
             } finally {
                 speechClient.shutdown();
                 speechClient.awaitTermination(30, TimeUnit.SECONDS);
             }
 
+        } catch (Exception e) {
+            logger.severe("Error in convertSpeechToText: " + e.getMessage());
+            throw e;
         } finally {
             // 임시 파일 삭제
             if (tempFile != null && tempFile.exists()) {
                 if (!tempFile.delete()) {
                     logger.warning("Failed to delete temporary file: " + tempFile.getAbsolutePath());
+                } else {
+                    logger.info("Temporary file deleted: " + tempFile.getAbsolutePath());
                 }
             }
         }
     }
+
 }

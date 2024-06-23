@@ -27,7 +27,7 @@ public class SpeechToTextController {
 
     private static final Logger logger = Logger.getLogger(SpeechToTextController.class.getName());
 
-    @Value("classpath:articulate-bot-427008-b0-098d19344371.json")
+    @Value("${spring.cloud.gcp.credentials.location}")
     private Resource gcpCredentials;
 
     @PostMapping("/transcribe")
