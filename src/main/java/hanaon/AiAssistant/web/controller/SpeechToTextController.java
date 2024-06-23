@@ -27,7 +27,7 @@ public class SpeechToTextController {
 
     private static final Logger logger = Logger.getLogger(SpeechToTextController.class.getName());
 
-    @Value("${spring.cloud.gcp.credentials.location}")
+    @Value("${gcp-location}")
     private Resource gcpCredentials;
 
     @PostMapping("/transcribe")
