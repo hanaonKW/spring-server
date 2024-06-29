@@ -19,7 +19,7 @@ public class TextToSpeechServiceImpl implements TextToSpeechService {
 
     private static final Logger logger = Logger.getLogger(TextToSpeechServiceImpl.class.getName());
 
-    @Value("${gcp-location}")
+    @Value("${google.cloud.credentials.location}")
     private Resource gcpCredentials;
 
     @Override
