@@ -22,7 +22,7 @@ public class SpeechToTextServiceImpl implements SpeechToTextService {
 
     private static final Logger logger = Logger.getLogger(SpeechToTextServiceImpl.class.getName());
 
-    @Value("${gcp-location}")
+    @Value("${google.cloud.credentials.location}")
     private Resource gcpCredentials;
 
     @Override

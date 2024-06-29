@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "eastern-moment-427909-f3",
+  "private_key_id": "95c954210a5c8b36423d61a5122224ecb9fa2a59",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC0WP/3n+dpx5uq\n0kUlS9r7b2Nq2Is+C1Fy3Yu0tOQ/9JCQrxsfuEGt/6n/Cx/bKMhMAHGqm1RikV59\nczpBTyLsbSV1oIiQuyjIefr2WEXqe2GV4gVtBp5UmkfoxXZDMzX2B0z+SpCnxlSv\n7kaWTVj0rgAOhD1/FenSQR2qQWmZzRlppTnod2Gv2DmTc5FIt0ugGU3iT3bgbY2D\n/ETMEfvW0+6SvFBIRnwNcCdDeKy6hAzfFvfe7O11aW2toMVhgbWD+L1/DLdSg5qi\nITiaQWWGegJV/fy1W00V+2yeEiE3Qy3YpjVgowo0pyHTyz80TRpgBHi+0rvBEdMq\ngEe7WErJAgMBAAECggEACl1lFJ+xhpBMv4QHKk4SP0oXDiB03DN9UlsuOMv+pDhT\niKUvq2KFD9F2PSyv/4H4BPovji0QK/wL0KzrJ667JJhfQ0PfJWZEQUVVaYwINKIz\nqRAM3Me5GManJFcY5WLPkpy3zZOOfb31xwisMN4wIxvO8AaknCWvwwAwCsVoosig\naGN1Z9SBf/0rnF9Ce/Bnx0OMfc8Ns4FQadcLjklkUMoYIqa2IFtY8OS6kQLEsNyz\nQ++8AnC/MVTRyff2FRgav41YZndCcWFzNtEmErNswRCBPJAeF2rMRjUPKdq3iXZv\nQUTld2ewv6UQUcqUoc1MzEs2DVXPnrclju0ZyMPOmwKBgQD1C2kYSDTiLfx01hJL\nBnbpb8T2Rb29pVCzW3JLkuxIiEQjNmFjJozs4VaQiNktHW2xjvmjqIKB/pr2lIAI\nxZeOU/a33E3dyGfkcgAfYyayiHO8h4BvGkSNOW/75azxSGKlZkh82XJcY4ikp+/T\nT4A4UGb8NYA19JYYJN/e+xBZUwKBgQC8aR5o1iFOtPVisY/6XATLj6G9b887yu5e\nLMotD1nKZ07bP52EA+OLAoa2qFEm8OYXTVPx0UvkrdNRFa2yt0r70ETnxtwDmhaB\ndgJidegQ/gHEMBFfSJVtlhuKWZasz7dDCbg81y1n9RYzB0wd8WEC/CRPiejNVTdN\ndAd3v0Fb8wKBgBMgB9zQTehVRH3t81GNuJwxkALUoKF7lJfbDEmftvdWQ1MoPGOb\nr6YRVEtFkwW1ZUlVamB+l2kD8R5Lqs6EdXazUO86r40exhULXL0WZP/MLJRLUxfY\nyf7nu7jCTUQrrR9Ro1izM/zH+/M19D7e1pgOlmsa1d3gMBLEVgC2QalnAoGAfQi1\nqZURHY5xmkGD7v3KINz81R6yRFfzwIOw2B5r1Cqi5lVdTxLVmpbel7EzycfsqmIi\n50OiPewtZI4ia4vAM0SPtdD+iVVkwh1yj6z3iO9IdM4BeV5N7B/FvxadK6ndUJvO\nrHGQLIE1bj/Vf7mES9rQrggzerCmtrvdiNZfpYkCgYBWmTwefrK9veCtUzssSsEp\nZyewscbbscIgNpDix7Jaiv2SFFCxXUNtHq5F138u4TqYRcX06aqeeoP2mEKZjlLZ\naWi9WEGyUK/L9Zj1F4bw/+sdZryxrsbA3QwFdP7PUXU1ihGm7/YSsEiRKyNOPkMO\nlpoT+FMHYVR1E0xRmleFwg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "aiassistant@eastern-moment-427909-f3.iam.gserviceaccount.com",
+  "client_id": "100721449629560169418",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/aiassistant%40eastern-moment-427909-f3.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

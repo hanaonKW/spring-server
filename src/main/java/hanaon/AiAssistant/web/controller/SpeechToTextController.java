@@ -27,7 +27,7 @@ public class SpeechToTextController {
 
     private static final Logger logger = Logger.getLogger(SpeechToTextController.class.getName());
 
-    @Value("${gcp-location}")
+    @Value("${google.cloud.credentials.location}")
     private Resource gcpCredentials;
 
     @PostMapping("/transcribe")
